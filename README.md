@@ -66,4 +66,54 @@ extern CGPoint SCREEN_CENTER;
 +(UIView *)ViewcornerRadius:(float)radius andColor:(UIColor *)color andWidth:(float)width :(UIView *)view;
 
 ```
+## 设备有关
+```
+
+//获取系统版本
++ (CGFloat)systemVersion;
+//当前手机是否支持PhotoKit照片库框架
++ (BOOL)canUsePhotiKit;
+//拨打电话
++ (void)callPhoneNumber:(NSString *)phone;
+//复制字符串到系统剪贴板
++ (void)copyToPasteboard:(NSString *)string;
+//获取APP 名称
++ (NSString *)appName;
+//获取APP Scheme
++ (NSString *)getApplicationScheme;
+//设置网络活动指示符可见(导航栏旋转图标)
++ (void)setNetworkActivityIndicatorVisible:(BOOL)visible;
+//保存图片到系统相册
++ (void)saveImageToPhotoAlbum:(UIImage *)image;
+//保存视频到系统相册
++ (void)saveVideoToPhotoAlbum:(NSString *)videoPath;
+//设备型号名称
++ (NSString *)deviceModelName;
+//获取根视图
++ (UIViewController *)rootViewController;
+//获取window
++ (UIWindow *)currentWindow;
+//可获取window并且添加showInWidow弹窗
++ (UIWindow *)popOverWindow;
+//获取当前控制器所在
++ (UIViewController *)getCurrentVC;
+//添加一个View到Window
++ (void)addViewToPopOverWindow:(UIView *)view;
+//从window移除View
++ (void)removeViewFromPopOverWindow:(UIView *)view;
+//获取Appdelegate
++ (AppDelegate *)appDelegate;
+//获取当前View所在的控制器
++ (UIViewController *)viewControllerForView:(UIView *)view;
+//移除控制器上所有的子视图以及其他控制器
++ (void)removeViewControllerFromParentViewController:(UIViewController *)viewController;
+//开始观察runloop
++ (void)startObserveRunLoop;
+//开始停止runloop
++ (void)stopObserveRunLoop;
+
+
+```
+
+
 
