@@ -126,7 +126,12 @@ extern CGPoint SCREEN_CENTER;
 + (void)startObserveRunLoop;
 //开始停止runloop
 + (void)stopObserveRunLoop;
-
+/**是否纯数字 */
++ (BOOL)isPureNumandCharacters:(NSString *)string;
+/** 手机号验证 */
++ (BOOL)isValidateMobile:(NSString *)mobile;
+/** 邮箱验证 */
++ (BOOL)isValidateEmail:(NSString *)email;
 
 #pragma mark -
 #pragma mark - 文件管理
