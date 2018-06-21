@@ -531,6 +531,18 @@ CGPoint SCREEN_CENTER;
     if ([platform isEqualToString:@"iPhone6,2"]) return @"iPhone 5S";
     if ([platform isEqualToString:@"iPhone7,1"]) return @"iPhone 6";
     if ([platform isEqualToString:@"iPhone7,2"]) return @"iPhone 6 Plus";
+      if ([platform isEqualToString:@"iPhone8,2"]) return @"iPhone 6s Plus";
+      if ([platform isEqualToString:@"iPhone8,4"]) return @"iPhone SE";
+      if ([platform isEqualToString:@"iPhone9,1"]) return @"iPhone 7";
+      if ([platform isEqualToString:@"iPhone9,2"]) return @"iPhone 7 Plus";
+      if ([platform isEqualToString:@"iPhone9,3"]) return @"iPhone 7";
+      if ([platform isEqualToString:@"iPhone9,4"]) return @"iPhone 7 Plus";
+      if ([platform isEqualToString:@"iPhone10,1"]) return @"iPhone 8";
+      if ([platform isEqualToString:@"iPhone10,2"]) return @"iPhone 8 Plus";
+      if ([platform isEqualToString:@"iPhone10,4"]) return @"iPhone 8";
+      if ([platform isEqualToString:@"iPhone10,5"]) return @"iPhone 8 Plus";
+      if ([platform isEqualToString:@"iPhone10,3"]) return @"iPhone X";
+    if ([platform isEqualToString:@"iPhone10,6"]) return @"iPhone X";
     //iPot Touch
     if ([platform isEqualToString:@"iPod1,1"]) return @"iPod Touch";
     if ([platform isEqualToString:@"iPod2,1"]) return @"iPod Touch 2";
@@ -1964,7 +1976,7 @@ dataImage:(UIImage *)dataImage{
     }
     return nil;
 }
-+(instancetype)at_viewFromXib
++(instancetype)sw_viewFromXib
 {
     return [[NSBundle mainBundle]loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
 }

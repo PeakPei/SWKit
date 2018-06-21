@@ -126,6 +126,8 @@ extern CGPoint SCREEN_CENTER;
 + (void)startObserveRunLoop;
 //开始停止runloop
 + (void)stopObserveRunLoop;
+
+//其他判断工具
 /**是否纯数字 */
 + (BOOL)isPureNumandCharacters:(NSString *)string;
 /** 手机号验证 */
@@ -329,7 +331,7 @@ extern CGPoint SCREEN_CENTER;
 //获取当前view所在的控制器
 - (UIViewController*)getCurrentViewController;
 //获取当前类的XIB 类直接调用
-+(instancetype)at_viewFromXib;
++(instancetype)sw_viewFromXib;
 //view直接添加手势
 - (UITapGestureRecognizer *)addTapGestureRecognizer:(SEL)action;
 - (UITapGestureRecognizer *)addTapGestureRecognizer:(SEL)action target:(id)target;
