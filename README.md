@@ -148,3 +148,188 @@ extern CGPoint SCREEN_CENTER;
 
 ```
 
+
+## 文本字符工具
+
+```
+//配置
+#define URL_MAIL_SCHEME @"mailto"
+#define URL_HTTP_SCHEME @"http"
+#define URL_HTTPS_SCHEME @"https"
+#define kSWTextLinkColor [UIColor redColor]
+
+//获取文字自适应
++ (CGFloat)widthForSingleLineString:(NSString *)text font:(UIFont *)font;
+//获取拼音首字母(传入汉字字符串, 返回大写拼音首字母)
++ (NSString *)firstPinyinLetterOfString:(NSString *)aString;
+//获取拼音
++ (NSString *)pinyinOfString:(NSString *)aString;
++ (NSString *)sizeStringWithStyle:(nullable id)style size:(long long)size;
+//获取文字自适应
++ (CGSize)boundingSizeForText:(NSString *)text maxWidth:(CGFloat)maxWidth font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing;
++ (NSMutableAttributedString *)highlightDefaultDataTypes:(NSMutableAttributedString *)attributedString;
+ //获取文本宽
++ (CGFloat)getTextWidth:(UILabel *)lable;
+//获取文本高
++ (CGFloat)getTextHeight:(UILabel *)lable;
+//配置
+#define URL_MAIL_SCHEME @"mailto"
+#define URL_HTTP_SCHEME @"http"
+#define URL_HTTPS_SCHEME @"https"
+#define kSWTextLinkColor [UIColor redColor]
+
+//获取文字自适应
++ (CGFloat)widthForSingleLineString:(NSString *)text font:(UIFont *)font;
+//获取拼音首字母(传入汉字字符串, 返回大写拼音首字母)
++ (NSString *)firstPinyinLetterOfString:(NSString *)aString;
+//获取拼音
++ (NSString *)pinyinOfString:(NSString *)aString;
++ (NSString *)sizeStringWithStyle:(nullable id)style size:(long long)size;
+//获取文字自适应
++ (CGSize)boundingSizeForText:(NSString *)text maxWidth:(CGFloat)maxWidth font:(UIFont *)font lineSpacing:(CGFloat)lineSpacing;
++ (NSMutableAttributedString *)highlightDefaultDataTypes:(NSMutableAttributedString *)attributedString;
+ //获取文本宽
++ (CGFloat)getTextWidth:(UILabel *)lable;
+//获取文本高
++ (CGFloat)getTextHeight:(UILabel *)lable;
+```
+
+## 视频工具
+
+```
+  //配置
+#define AlAsset_Library_Scheme @"assets-library"
+
+
+//将Apple视频录制的格式MOV转换为MP4格式
++ (void)convertVideoFromMOVToMP4:(NSURL *)movUrl complete:(void (^)(NSString *mp4Path, BOOL finished))completeCallback;
+
+// 获取视频时长
++ (CGFloat)getVideoLength:(NSString *)videoPath;
+
+// 获取视频显示尺寸
++ (CGSize)getVideoSize:(NSString *)videoPath;
+
+
+// 获取视频缩略图
++ (UIImage *)getVideoThumbnailImage:(NSString *)videoPath;
+
+
+//用户录制的视频压缩
++ (void)compressVideoForSend:(NSURL *)videoURL
+               removeMOVFile:(BOOL)removeMOVFile
+                  okCallback:(void (^)(NSString *mp4Path))okCallback
+              cancelCallback:(void (^)(void))cancelCallback
+                failCallback:(void (^)(void))failCallback;
+
+//系统相册中视频压缩
++ (void)compressVideoAssetForSend:(AVURLAsset *)videoAsset
+                       okCallback:(void (^)(NSString *mp4Path))okCallback
+                   cancelCallback:(void (^)(void))cancelCallback
+                     failCallback:(void (^)(void))failCallback
+                  successCallback:(void (^)(NSString *mp4Path))successCallback;
+```
+
+## 字符串加密工具
+```
+ //配置AfferentString 传入需要操作的字符串
+
++ (NSString *) md5:(NSString *)AfferentString;
++ (NSString *) sha1:(NSString *)AfferentString;
++ (NSString *) sha1_base64:(NSString *)AfferentString;
++ (NSString *) md5_base64:(NSString *)AfferentString;
++ (NSString *) base64:(NSString *)AfferentString;
+
+```
+
+## 设备权限工具
+```
+//配置
+#define iOS10Later ([UIDevice currentDevice].systemVersion.floatValue >= 10.0f)
++(BOOL)isAuthorizationStatus;
++(BOOL)isRecord;
++(BOOL)isLocation;
++(void)versionsJudge;
+```
+
+## 颜色工具
+```
+//传入16进制字符 比如@"#FFF000" 返回一个颜色值
++ (UIColor *)colorWithHexString:(NSString *)color;
+//传入16进制字符 比如@"#FFF000" 可设置透明度 返回一个颜色值
++ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
+//获取随机颜色值 一般用于测试UI布局控件
++ (UIColor *)randomColor;
+//获取随机颜色值 一般用于测试UI布局控件 可设置透明度
++ (UIColor *)randomColorWithAlpha:(CGFloat)alpha;
+
+```
+
+
+## 图片处理工具
+```
+//配置使用,传入image即可返回一个image对象
+
+//通过View来绘制一张图片
++ (UIImage *)imageWithView:(UIView *)view;
+//通过颜色值来获取一张图片 可设置大小
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+//通过颜色值来获取一张图片
++ (UIImage *)imageWithColor:(UIColor *)color;
+//可调整大小的图像
+- (UIImage *)resizableImage:(UIImage *)image;
+//可调整大小的图像
+- (UIImage *)resizeImageToSize:(CGSize)size image:(UIImage *)image;
+//绘制可调整大小的图像 并且可调整系数
+- (UIImage *)resizeImageToSize:(CGSize)size
+                        opaque:(BOOL)opaque
+                         scale:(CGFloat)scale
+                         image:(UIImage *)image;
+//在rect创建图像
+- (UIImage *)createWithImageInRect:(CGRect)rect dataImage:(UIImage *)dataImage;
+//获取灰度的图像
+- (UIImage *)getGrayImage:(UIImage *)image;
+//获取变暗的图像
+- (UIImage *)darkenImage:(UIImage *)image;
+
+- (UIImage *) partialImageWithPercentage:(float)percentage
+                                vertical:(BOOL)vertical
+                           grayscaleRest:(BOOL)grayscaleRest
+                               dataImage:(UIImage *)dataImage;
+//获取图片的像素大小
+- (CGSize)pixelSize:(UIImage *)image;
+//获取图像文件的大小
+- (NSInteger)imageFileSize:(UIImage *)image;
+
+//GIF图片专区
++ (UIImage *)sw_animatedGIFNamed:(NSString *)name;
+//传入Data类型返回一个gif图片
++ (UIImage *)sw_animatedGIFWithData:(NSData *)data;
+//动画裁剪大小
+- (UIImage *)sw_animatedImageByScalingAndCroppingToSize:(CGSize)size image:(UIImage *)image;
+//GIF动画帧index source文件 --> CGImageSourceCreateWithData((__bridge CFDataRef)(gifData), NULL);
++ (float)sw_frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source;
+
+
+```
+
+## UIView拓展工具
+
+```
+//获取当前view所在的控制器
+- (UIViewController*)getCurrentViewController;
+//获取当前类的XIB 类直接调用
++(instancetype)sw_viewFromXib;
+//view直接添加手势
+- (UITapGestureRecognizer *)addTapGestureRecognizer:(SEL)action;
+- (UITapGestureRecognizer *)addTapGestureRecognizer:(SEL)action target:(id)target;
+//添加长按手势
+- (UILongPressGestureRecognizer *)addLongPressGestureRecognizer:(SEL)action duration:(CGFloat)duration;
+//添加长按手势 几秒后相应
+- (UILongPressGestureRecognizer *)addLongPressGestureRecognizer:(SEL)action target:(id)target duration:(CGFloat)duration;
+//移除当前View所有子视图
+- (void)removeAllSubviews;
+
+```
+
+
