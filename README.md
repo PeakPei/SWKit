@@ -115,5 +115,36 @@ extern CGPoint SCREEN_CENTER;
 
 ```
 
+## 文件管理
 
+```
+#define  SW_fileManager [NSFileManager defaultManager]
+#define DATAPATHDIRECTORY @"/Library/ATAPPDATA/Movies_"  //可自定义
+#define MessageThumbnailDirectory @"MessageThumbnailDir/" //可自定(消息路径)
+
+//沙河文件主目录
++ (NSString *)homeDirectory;
+//文件目录
++ (NSString *)documentDirectory;
+//缓存目录
++ (NSString *)cacheDirectory;
+//临时目录
++ (NSString *)tmpDirectory;
+//获取Storyboard
++ (UIStoryboard *)mainStoryboard;
+//消息缩略图目录
++ (NSString *)messageThumbnailDirectory;
+//创建一个文件folderName文件夹名称   夹在   directory目录
++ (NSURL *)createFolderWithName:(NSString *)folderName inDirectory:(NSString *)directory;
+//获取数据路径
++ (NSString *)dataPath;
+//删除文件路径
++ (void)removeFileAtPath:(NSString *)path;
+//写入图片  path 文件路径 image 图片数据
++ (void)writeImageAtPath:(NSString *)path image:(UIImage *)image;
+//返回文件大小，单位为字节
++ (unsigned long long)getFileSize:(NSString *)path;
+
+
+```
 
