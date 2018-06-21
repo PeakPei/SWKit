@@ -53,6 +53,13 @@ extern CGPoint SCREEN_CENTER;
 /**UIButton 背景色 图片 选中图片*/
 +(UIButton *)buttonWithBackgroundColor:(UIColor *)backgrountColor imageForNormal:(NSString *)imageForNormal imageForSelete:(NSString *)imageForSelete;
 
+
+/**快速创建文字按钮 */
++ (UIButton *)buttonWithTitle:(NSString *)title titleColor:(UIColor *)normalColor hilightedColor:(UIColor *)hilightedColor fontSize:(CGFloat)fontSize frame:(CGRect)frame;
+
+/**快速创建图片按钮 */
++ (UIButton *)buttonWithImage:(UIImage *)image hilightedImage:(UIImage *)hilightedImage frame:(CGRect)frame;
+
 /**UIImageView 背景色 是否可触摸 图片名字*/
 +(UIImageView *)imageViewWithBackgroundColor:(UIColor *)backgrountColor userInteractionEnabled:(BOOL)userInteractionEnabled imageName:(NSString *)imageName;
 

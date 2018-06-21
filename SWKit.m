@@ -330,6 +330,35 @@ CGPoint SCREEN_CENTER;
     
     return button;
 }
++ (UIButton *)buttonWithTitle:(NSString *)title
+                   titleColor:(UIColor *)normalColor
+               hilightedColor:(UIColor *)hilightedColor
+                     fontSize:(CGFloat)fontSize
+                        frame:(CGRect)frame
+{
+    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [aButton setTitle:title forState:UIControlStateNormal];
+    [aButton setTitleColor:normalColor forState:UIControlStateNormal];
+    if (hilightedColor) {
+        [aButton setTitleColor:hilightedColor forState:UIControlStateHighlighted];
+    }
+    aButton.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+    aButton.frame = frame;
+    return aButton;
+}
+
++ (UIButton *)buttonWithImage:(UIImage *)image
+               hilightedImage:(UIImage *)hilightedImage
+                        frame:(CGRect)frame
+{
+    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [aButton setImage:image forState:UIControlStateNormal];
+    if (hilightedImage) {
+        [aButton setImage:hilightedImage forState:UIControlStateHighlighted];
+    }
+    aButton.frame = frame;
+    return aButton;
+}
 
 +(UIImageView *)imageViewWithBackgroundColor:(UIColor *)backgrountColor userInteractionEnabled:(BOOL)userInteractionEnabled imageName:(NSString *)imageName
 {
