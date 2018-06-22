@@ -386,3 +386,5 @@ extern CGPoint SCREEN_CENTER;
 + (NSString *)timeInfoWithDateString:(NSString *)dateString;
 ```
 
+
+# 工具使用,拖入到工程即可;如果有什么建议~可以私信我的邮箱,392287145@qq.com 🙏
